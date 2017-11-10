@@ -20,9 +20,6 @@ public class Enclosure<T extends Animal> {
         animals.add(animal);
     }
 
-    public void removeAnimal(T animal) {
-        animals.remove(animal);
-    }
 
     public int animalsInEnclosure() {
        return this.animals.size();
@@ -37,6 +34,7 @@ public class Enclosure<T extends Animal> {
             animals.remove(animal);
         }
     }
+
 }
 
 //Enclosure<String> enclosure = new Enclosure();

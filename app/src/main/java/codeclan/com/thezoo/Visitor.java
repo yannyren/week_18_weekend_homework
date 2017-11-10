@@ -13,6 +13,8 @@ public class Visitor {
     public Visitor(String name, int moneyAvailable) {
         this.name = name;
         this.moneyAvailable = moneyAvailable;
+        this.ticketNumber =0;
+
     }
 
     public boolean enoughMoney(int ticketPrice) {
@@ -27,8 +29,11 @@ public class Visitor {
         this.ticketNumber +=1;
     }
 
-    public int getTicketNumber() {
+    public int getNumberOfTickets() {
         return this.ticketNumber;
     }
 
+    public String getName() {
+        return this.name;
+    }
 }

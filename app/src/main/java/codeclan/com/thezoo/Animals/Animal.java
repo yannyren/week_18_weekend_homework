@@ -11,5 +11,7 @@ public abstract class Animal {
         this.cashValue = cashValue;
     }
 
-
+    public int getCashValue(){
+        return this.cashValue;
+    }
 }

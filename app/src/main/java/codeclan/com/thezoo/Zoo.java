@@ -37,18 +37,23 @@ public class Zoo {
         return totalNumber;
     }
 
-//    public void sellAnimal(Animal animal){
-//        //check if animal is in the closure
-//
-//            for(Enclosure enclosure : this.enclosureList) {
-//            enclosure.checkTheAnimalInTheClosure(animal);
-//        }
-//
-//
-//    }
+    public int sellAnimal(Animal animal){
+        //check if animal is in the closure
+        for(Enclosure enclosure : enclosureList) {
+            //enclosure.checkTheAnimalInTheClosure(animal) ?
+            //        enclosure.removeAnimalFromEnclosure(animal) : System.out.println("No such animal");
+            if (enclosure.checkTheAnimalInTheClosure(animal)) {
+                enclosure.removeAnimalFromEnclosure(animal);
+                this.account += animal.getCashValue();
+            } else {
+                System.out.println("We don't have this animal in the zoo.");
+            }
+        }
+        return account;
+    }
 
     public void addVisitors(Visitor visitor){
-        if(visitor.getTicketNumber() > 0) {
+        if(visitor.getNumberOfTickets() > 0) {
             this.visitors.add(visitor);
         }
     }
@@ -63,4 +68,7 @@ public class Zoo {
     }
 
 
+    public int numberOfEnclosures() {
+       return this.enclosureList.size();
+    }
 }

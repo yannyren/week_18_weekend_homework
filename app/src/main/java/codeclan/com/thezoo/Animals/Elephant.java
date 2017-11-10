@@ -6,7 +6,8 @@ package codeclan.com.thezoo.Animals;
 
 public class Elephant extends Animal{
 
-    public Elephant(int value){
-        super(value);
+    public Elephant(int cashValue){
+        super(cashValue);
+
     }
 }
