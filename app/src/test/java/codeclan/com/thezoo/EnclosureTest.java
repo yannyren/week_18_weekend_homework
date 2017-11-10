@@ -16,10 +16,12 @@ import static junit.framework.Assert.assertEquals;
 
 public class EnclosureTest {
     Enclosure<Lion> enclosure;
+    Lion lion;
 
     @Before
     public void before() {
         this.enclosure = new Enclosure();
+        this.lion = new Lion(3400);
     }
 
     @Test
@@ -29,12 +31,16 @@ public class EnclosureTest {
 
     @Test
     public void canAddAnimals() {
-        Lion lion = new Lion(3400);
         this.enclosure.addAnimals(lion);
         assertEquals(1, this.enclosure.animalsInEnclosure());
 
     }
 
+    @Test
+    public void canGetTotalCashValue() {
+        this.enclosure.addAnimals(lion);
+        assertEquals(3400, this.enclosure.getTotalCashValue());
+    }
 
     @Test
     public void canCheckTheAnimalInTheClosure() {
@@ -50,6 +56,13 @@ public class EnclosureTest {
         assertEquals(true, this.enclosure.checkTheAnimalInTheClosure(lion));
         this.enclosure.removeAnimalFromEnclosure(lion);
         assertEquals(false, this.enclosure.checkTheAnimalInTheClosure(lion));
+    }
+
+    @Test
+    public void canGetAnimals() {
+        Lion lion = new Lion(3400);
+        this.enclosure.addAnimals(lion);
+        assertEquals(lion, this.enclosure.getAnimals().get(0));
     }
 
 

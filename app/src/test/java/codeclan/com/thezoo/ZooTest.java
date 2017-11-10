@@ -19,6 +19,7 @@ public class ZooTest {
     Lion lion;
     Enclosure<Panda> pandaEnclosure;
     Panda panda;
+    Visitor visitor;
 
 
     @Before
@@ -28,6 +29,7 @@ public class ZooTest {
         this.lion = new Lion(4300);
         this.pandaEnclosure = new Enclosure<>();
         this.panda = new Panda(4500);
+        this.visitor = new Visitor("Jack", 3000);
     }
 
     @Test
@@ -64,6 +66,29 @@ public class ZooTest {
     @Test
     public void canNotSellAnimalWhenWeDontHaveIt() {
         assertEquals(0, this.zoo.sellAnimal(lion));
+    }
+
+    @Test
+    public void canAddVisitors() {
+        visitor.buyingTicket(10);
+        this.zoo.addVisitors(visitor);
+        assertEquals(1, zoo.numberOfVisitors());
+    }
+
+    @Test
+    public void canShowAccountBalanceWhenVisitorsBuyTickets() {
+        visitor.buyingTicket(10);
+        zoo.addVisitors(visitor);
+        assertEquals(10, this.zoo.accountBalanceWhenVisitorsBuyTickets());
+    }
+
+    @Test
+    public void canCalculateTotalValueOfAnimals() {
+        this.lionEnclosure.addAnimals(lion);
+        this.pandaEnclosure.addAnimals(panda);
+        zoo.addEncloure(lionEnclosure);
+        zoo.addEncloure(pandaEnclosure);
+        assertEquals(8800, this.zoo.calculateTotalValueOfAnimals());
     }
 
 }

@@ -16,10 +16,14 @@ public class Enclosure<T extends Animal> {
         this.animals = new ArrayList<>();
     }
 
+
     public void addAnimals(T animal) {
         animals.add(animal);
     }
 
+    public ArrayList<T> getAnimals() {
+        return this.animals;
+    }
 
     public int animalsInEnclosure() {
        return this.animals.size();
@@ -27,6 +31,16 @@ public class Enclosure<T extends Animal> {
 
     public boolean checkTheAnimalInTheClosure(T animal) {
         return animals.contains(animal);
+    }
+
+    public int getTotalCashValue() {
+        int total = 0;
+
+        for(Animal a : this.animals) {
+            if (a != null)
+                total+=a.getCashValue();
+        }
+        return total;
     }
 
     public void removeAnimalFromEnclosure(T animal) {

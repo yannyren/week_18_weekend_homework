@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import codeclan.com.thezoo.Animals.Animal;
 
+
+
 /**
  * Created by yanren on 10/11/2017.
  */
@@ -70,5 +72,14 @@ public class Zoo {
 
     public int numberOfEnclosures() {
        return this.enclosureList.size();
+    }
+
+    public int calculateTotalValueOfAnimals() {
+        int animalValue = 0;
+        for(Enclosure enclosure : enclosureList) {
+
+            animalValue += enclosure.getTotalCashValue() ;
+
+        } return animalValue;
     }
 }
